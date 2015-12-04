@@ -10,6 +10,16 @@
 	"categories": [
 		"Languages"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/eqela/eq-vscode-extension.git"
+	},
+	"icon": "eq128.png",
+	"galleryBanner": {
+		"color": "#634428",
+		"theme": "light"
+	},
+	"homepage" : "http://dn.eqela.com",
 	"contributes": {
 		"languages": [{
 			"id": "eq",
