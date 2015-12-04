@@ -17,7 +17,7 @@
 	"icon": "eq128.png",
 	"galleryBanner": {
 		"color": "#634428",
-		"theme": "light"
+		"theme": "dark"
 	},
 	"homepage" : "http://dn.eqela.com",
 	"contributes": {
