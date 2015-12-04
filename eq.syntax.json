@@ -1,0 +1,191 @@
+{
+	"scopeName" : "source.eq",
+	"name" : "EQ",
+	"fileTypes" : [
+		"eq"
+	],
+	"patterns" : [
+		{
+			"include" : "#code"
+		}
+	],
+
+	"repository": {
+		
+		"code" : {
+			"patterns" : [
+				{
+					"include" : "#comments"
+				},
+				{
+					"include" : "#punctuation"
+				},
+				{
+					"include" : "#constants"
+				},
+				{
+					"include" : "#internals"
+				}
+			]
+		},
+
+		"punctuation" : {
+			"patterns" : [
+				{
+					"match": "\\.|,|;|:",
+					"name": "keyword.operator.eq"
+				},
+				{
+					"match": "\\+|\\*|-|/|\\|\\||&&|=|==|!=|%",
+					"name": "keyword.operator.eq"
+				},
+				{
+					"match": "\\b(if|else|while|for|foreach|in|do|return|continue|break|new|is|as)\\b",
+					"name": "keyword.special.eq"
+				}
+			]
+		},
+		
+		"internals" : {
+			"patterns" : [
+				{
+					"match": "^(@[a-zA-Z0-9_:]*)",
+					"captures" : {
+						"1" : {
+							"name" : "keyword.internal.eq"
+						}
+					}
+				},
+				{
+					"match": "[^@\\w](@[a-zA-Z0-9_:]*)",
+					"captures" : {
+						"1" : {
+							"name" : "keyword.internal.eq"
+						}
+					}
+				},
+				{
+					"match": "(\\$[a-zA-Z0-9_:]*\\w)",
+					"captures" : {
+						"1" : {
+							"name" : "storage.type.internal.eq"
+						}
+					}
+				},
+				{
+					"match": "(#[a-zA-Z0-9_:]*\\w)",
+					"captures" : {
+						"1" : {
+							"name" : "storage.modifier.eq"
+						}
+					}
+				}
+			]
+		},
+
+		"comments" : {
+			"patterns" : [
+				{
+					"begin": "///",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment"
+						}
+					},
+					"end": "$\\n?",
+					"name": "comment.block.documentation.eq",
+					"patterns": [
+						{
+							"include": "text.xml"
+						}
+					]
+        			},
+				{
+					"begin": "/\\*",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.eq"
+						}
+					},
+					"end": "\\*/\\n?",
+					"name": "comment.block.eq"
+				},
+				{
+					"begin": "//",
+					"captures": {
+						"1": {
+						"name": "punctuation.definition.comment.eq"
+						}
+					},
+					"end": "$\\n?",
+					"name": "comment.line.double-slash.eq"
+				}
+			]
+		},
+
+		"constants": {
+			"patterns": [
+				{
+					"match": "\\b(true|false|null)\\b",
+					"name": "constant.language.eq"
+				},
+				{
+					"match": "\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b",
+					"name": "constant.numeric.eq"
+				},
+				{
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.eq"
+						}
+					},
+					"match": "@\"([^\"]|\"\")*\"",
+					"name": "string.quoted.double.literal.eq"
+				},
+				{
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.eq"
+						}
+					},
+					"end": "\"",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.eq"
+						}
+					},
+					"name": "string.quoted.double.eq",
+					"patterns": [
+						{
+							"match": "\\\\.",
+							"name": "constant.character.escape.eq"
+						}
+					]
+				},
+				{
+					"begin": "'",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.eq"
+						}
+					},
+					"end": "'",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.eq"
+						}
+					},
+					"name": "string.quoted.single.eq",
+					"patterns": [
+						{
+							"match": "\\\\.",
+							"name": "constant.character.escape.eq"
+						}
+					]
+				}
+			]
+		}
+
+	}
+}

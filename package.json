@@ -1,0 +1,31 @@
+{
+	"name": "eq",
+	"displayName": "EQ Programming Language Support",
+	"description": "Enables complete support for the EQ Programming Language (version 2), including syntax highlighting, bracket maching and an Eqela App Studio compatible color theme",
+	"version": "1.0.0",
+	"publisher": "eqela",
+	"engines": {
+		"vscode": "*"
+	},
+	"categories": [
+		"Languages"
+	],
+	"contributes": {
+		"languages": [{
+			"id": "eq",
+			"aliases": ["EQ", "eq"],
+			"extensions": [ ".eq", ".eq1", ".eq2" ],
+			"configuration": "./eq.configuration.json"
+		}],
+		"grammars": [{
+			"language": "eq",
+			"scopeName": "source.eq",
+			"path": "./eq.syntax.json"
+		}],
+		"themes": [{
+			"label": "Eqela Green",
+			"uiTheme": "vs-dark",
+			"path": "./eqelagreen.tmTheme"
+		}]
+	}
+}
